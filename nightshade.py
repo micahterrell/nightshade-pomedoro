@@ -78,6 +78,7 @@ if __name__ == "__main__":
 
     # loop variables
     is_work_period = True
+    is_rest_period = False
     cycles_finished = 0 # a cycle is a combo of 1 work interval and 1 rest interval.
     end_time = 0
     current_time = 0
@@ -88,7 +89,7 @@ if __name__ == "__main__":
         time_remaining = int(end_time - current_time)
         if(is_work_period):
             write_log(args.topic, WORK_SECONDS - time_remaining, 0)
-        else:
+        elif(is_rest_period):
             write_log(args.topic, WORK_SECONDS, REST_SECONDS - time_remaining)
         close_log()
         sys.exit(0)
@@ -122,6 +123,7 @@ if __name__ == "__main__":
         print(f"Starting rest cycle {cycles_finished + 1}")
         
         is_work_period = False
+        is_rest_period = True
         end_time = int(time.time() + REST_SECONDS)
         current_time = time.time()
 
@@ -133,6 +135,7 @@ if __name__ == "__main__":
             sys.stdout.flush()
             time.sleep(1)
             current_time = int(time.time())
+        is_rest_period = False
         print("\rRest Timer Expired                                ")
         sys.stdout.flush()
         alarm_sound.play()
