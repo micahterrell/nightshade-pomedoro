@@ -34,8 +34,8 @@ def log_file(output_path):
     # setup our log file, creating a new one if it does not exist
     log_file = open(output_path, "a+", buffering=1)
 
-    def write(topic, work_minutes, rest_minutes):
-        log_file.write(f"{args.topic},{work_minutes},{rest_minutes},{datetime.datetime.now(datetime.timezone.utc)}\n")
+    def write(topic, work_seconds, rest_seconds):
+        log_file.write(f"{args.topic},{work_seconds},{rest_seconds},{datetime.datetime.now(datetime.timezone.utc)}\n")
 
     def close():
         log_file.close()
@@ -139,7 +139,7 @@ if __name__ == "__main__":
         time.sleep(1)
 
         #Log the completed cycle
-        write_log(args.topic, WORK_MINUTES, REST_MINUTES)
+        write_log(args.topic, WORK_MINUTES * 60, REST_MINUTES * 60)
 
         input("Press ENTER to start the next cycle")
         cycles_finished += 1
