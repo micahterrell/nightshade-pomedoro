@@ -3,20 +3,10 @@ ending rest periods. Logs a simple csv format for convenient tracking. Allows th
 and custom schedule.
 
 There is only one dependency: pygame (for cross platform audio). 
-To install pygame: 
-```
-python3 -m pip install -U pygame --user
-```
+To install pygame: ``` python3 -m pip install -U pygame --user ```
 
-To run: 
-```
-python nightshade.py
-```
-or try 
-```
-python nightshade.py -h
-``` 
-for help with usage.
+To run: ``` python nightshade.py ```
+or try ``` python nightshade.py -h ``` for help with usage.
 
 I recommend setting up a bash alias or function for convenience
 
