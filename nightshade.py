@@ -44,7 +44,7 @@ def log_file(output_path):
 
 if __name__ == "__main__":
     # Parse provided arguments
-    arg_parser = argparse.ArgumentParser(description='A foo that bars')
+    arg_parser = argparse.ArgumentParser(description='A simple CLI pomedoro timer')
     #NOTE: -h and --help are elegantly handled by argparse
     arg_parser.add_argument("-v", "--version", action="store_true", help=VERSION_HELP_MESSAGE)
     arg_parser.add_argument("-t", "--topic", default="Work", help=TOPIC_HELP_MESSAGE)
